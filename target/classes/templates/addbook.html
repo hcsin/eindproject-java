@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+<div align="center">
+    <div class="col-sm-6">
+        <h2>Add book</h2>
+        <form action="/addBook" method="POST">
+            <table>
+                <tr>
+                    <td>
+                        <label class="form-label">ID</label>
+<!--                        <input type="hidden" id="id" name="id" class="form-control" value="0">0<br>-->
+                        <input type="text" id="id" name="id" class="form-control" th:value="${id}" readonly/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="form-label">ISBN</label>
+                        <input type="text" id="ISBN" name="ISBN"class="form-control" ><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="form-label">Book name</label>
+                        <input type="text" id="bookName" name="bookName"class="form-control" ><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="form-label">Author name</label>
+                        <input type="text" id="authorName" name="authorName" class="form-control"><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="form-label">To sale</label>
+                        <select id="toSale" name="toSale">
+                            <option value="true">To sale</option>
+                            <option value="false" selected>Not to Sale</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" class="btn btn-info">Save</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

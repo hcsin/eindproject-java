@@ -1,0 +1,76 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+		<title>Books data</title>
+		<style>
+			table, th, td {
+			   border: 1px solid black;
+			   border-spacing: 0px;
+			}
+			th, td {
+				padding: 10px;
+			}
+		</style>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+	<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+	<body>
+	<div class="col-8" align = "center">
+			<div class="panel-body" align = "center" >
+				<h1 >Book Registation</h1>
+				<a  th:href="@{'/new'}"><button type="submit" class="btn btn-info">Add new</button></a>
+				<h3>Search for books</h3>
+					<table>
+						<tr>
+						<form action="/search" method="POST">
+							<td>
+								<input type="text" name="search" id="search" th:value="${search}">
+							</td>
+							<td>
+								<input type="submit" value="Search">
+							</td>
+						</form>
+							<td>
+								<a  th:href="@{'/'}"><button type="submit" class="btn btn-info">Reset</button></a>
+							</td>
+						</tr>
+					</table>
+			</div>
+			<div class="panel-body" align = "center" >
+			<table class="table">
+			<thead class="thead-dark">
+			<tr>
+				<th>ID</th>
+				<th>ISBN</th>
+				<th>Book name</th>
+				<th>Author name</th>
+				<th>To sale</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each="book : ${bookList}">
+				<td th:text="${book.id}"></td>
+				<td th:text="${book.ISBN}"></td>
+				<td th:text="${book.bookName}"></td>
+				<td th:text="${book.authorName}"></td>
+				<td>
+					<div th:switch="${book.toSale}">
+						<p th:case=false>not to sale</p>
+						<p th:case=true>to sale</p>
+					</div>
+				</td>
+				<td>
+					<a th:href="@{'/edit/' + ${book.id}}">Edit</a>
+				</td>
+				<td>
+					<a th:href="@{'/delete/' + ${book.id}}">Delete</a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		</div>
+		</div>
+	</body>
+</html>

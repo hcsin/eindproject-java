@@ -1,0 +1,5 @@
+com\avans\eindproject\repository\BookSearchRepository.class
+com\avans\eindproject\model\Book.class
+com\avans\eindproject\BookApplication.class
+com\avans\eindproject\controllers\BookController.class
+com\avans\eindproject\repository\BookMongoRepository.class
